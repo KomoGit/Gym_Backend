@@ -7,20 +7,17 @@ WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
 builder.Services.AddGraphQL();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 WebApplication? app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-    app.UseGraphQL();
     app.UseGraphQLAltair();
 }
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.UseGraphQL();
 app.MapControllers();
 app.Run();
