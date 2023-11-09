@@ -5,7 +5,18 @@ namespace API.Data
 {
     public class ApplicationDbContext:DbContext
     {
+
         public DbSet<Member> Members { get; set; }
+
+        #region Blog
+        //public DbSet<Blog> Blogs { get; set; }
+        //public DbSet<BlogCategory> Categories { get; set; }
+        #endregion
+        #region Shop Items
+        //public DbSet<ItemCategory> ItemCategories { get; set; } 
+        //public DbSet<Item> Items { get; set; }
+        #endregion
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
