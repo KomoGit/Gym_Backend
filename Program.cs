@@ -1,5 +1,5 @@
-using API.Library.Repository;
 using API.Library;
+using API.Library.Repository;
 using GraphQL.AspNet.Configuration;
 
 WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
@@ -9,8 +9,9 @@ builder.Services.AddGraphQL();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
+//Library
 builder.Services.AddSingleton<IFileManager, FileManager>();
-builder.Services.AddSingleton<IImageUtility,ImageUtilities>();
+builder.Services.AddSingleton<IImageUtility,ImageCompressor>();
 
 WebApplication? app = builder.Build();
 
