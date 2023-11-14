@@ -22,5 +22,16 @@ namespace API.Controllers
             List<Blog>? blogs = _context.Blogs.ToList();
             return Ok(blogs);
         }
+
+        [MutationRoot("createBlog")]
+        public async Task<IGraphActionResult> PostBlog(Blog model)
+        {
+            if (ModelState.IsValid)
+            {
+                await _context.AddAsync(model);
+                await _context.SaveChangesAsync();
+            }
+            return Ok();
+        }
     }
 }
