@@ -1,4 +1,5 @@
 ﻿using API.Model;
+using API.Model.Blog;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Data
@@ -6,15 +7,14 @@ namespace API.Data
     public class ApplicationDbContext:DbContext
     {
 
-        public DbSet<Member> Members { get; set; }
+        public DbSet<User> Members { get; set; }
 
         #region Blog
-        //public DbSet<Blog> Blogs { get; set; }
-        //public DbSet<BlogCategory> Categories { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<BlogCategory> BlogCategories { get; set; }
         #endregion
         #region Shop Items
-        //public DbSet<ItemCategory> ItemCategories { get; set; } 
-        //public DbSet<Item> Items { get; set; }
         #endregion
 
 

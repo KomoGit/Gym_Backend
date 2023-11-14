@@ -1,6 +1,6 @@
-using API.Data;
+using API.Library.Repository;
+using API.Library;
 using GraphQL.AspNet.Configuration;
-using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +8,9 @@ WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
 builder.Services.AddGraphQL();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSingleton<IFileManager, FileManager>();
+builder.Services.AddSingleton<IImageUtility,ImageUtilities>();
 
 WebApplication? app = builder.Build();
 
