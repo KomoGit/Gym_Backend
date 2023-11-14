@@ -5,7 +5,7 @@ namespace API.Model
     /// <summary>
     /// Data shared across all models of the app
     /// </summary>
-    public class BaseModel
+    public abstract class BaseModel
     {
         [Key]
         public Guid Id { get; set; }
