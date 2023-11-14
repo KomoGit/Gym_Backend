@@ -1,4 +1,4 @@
-﻿using API.Model.Enum;
+﻿using API.Enum;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -8,7 +8,7 @@ namespace API.Model
     /// Represents all registered users of the applications.
     /// This includes Admins, Moderators, and regular members.
     /// </summary>
-    public class Member:BaseModel
+    public class User:BaseModel
     {
         [Required(ErrorMessage = "Cannot be empty")]
         public string Fullname { get; set; }
@@ -21,5 +21,7 @@ namespace API.Model
         public string Password { get; set; }
         [Required]
         public Role UserRole { get; set; }
+        [Required]
+        public string Token { get; set; }
     }
 }
