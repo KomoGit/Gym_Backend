@@ -1,25 +1,27 @@
-var builder = WebApplication.CreateBuilder(args);
+using API.Library.Repository;
+using API.Library;
+using GraphQL.AspNet.Configuration;
+
+WebApplicationBuilder? builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddGraphQL();
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+builder.Services.AddSingleton<IFileManager, FileManager>();
+builder.Services.AddSingleton<IImageUtility,ImageUtilities>();
+
+WebApplication? app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseGraphQLAltair();
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
+app.UseGraphQL();
 app.MapControllers();
-
 app.Run();
