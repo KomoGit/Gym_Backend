@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Gymbo.Application\Gymbo.Application.csproj" />
     <ProjectReference Include="..\Gymbo.Domain\Gymbo.Domain.csproj" />
   </ItemGroup>
 

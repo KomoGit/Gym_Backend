@@ -15,4 +15,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Gymbo.Application\Gymbo.Application.csproj" />
+  </ItemGroup>
+
 </Project>
